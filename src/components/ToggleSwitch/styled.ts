@@ -6,6 +6,8 @@ export const Label = styled.label`
   align-items: center;
   gap: 10px;
   cursor: pointer;
+
+  font-weight: bold;
 `;
 
 export const Switch = styled.div`
