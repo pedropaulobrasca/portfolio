@@ -1,13 +1,11 @@
 import { ToggleSwitch } from "../ToggleSwitch";
 import { Container } from "./styled";
 
-function Header() {
+export const Header = () => {
   return (
     <Container>
       <ToggleSwitch isLanguage />
       <ToggleSwitch isTheme />
     </Container>
   );
-}
-
-export default Header;
+};
