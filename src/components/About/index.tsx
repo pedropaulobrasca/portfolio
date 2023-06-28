@@ -1,4 +1,9 @@
 import { styled } from "styled-components";
+import {
+  AnimatedGradientTextBase,
+  AnimatedGradientTitle,
+  hue,
+} from "../AnimatedTextTitle";
 
 import about from "../../assets/about.svg";
 
@@ -34,9 +39,6 @@ export const LeftSide = styled.div`
     justify-content: center;
 
     span {
-      color: #4328e9;
-      font-size: 4rem;
-      font-family: Saira Stencil One;
     }
 
     p {
@@ -47,16 +49,14 @@ export const LeftSide = styled.div`
   }
 `;
 
+export const Number = styled.span`
+  color: #4328e9;
+  font-size: 4rem;
+  font-family: Saira Stencil One;
+`;
+
 export const RightSide = styled.div`
   max-width: 640px;
-
-  span {
-    color: #4328e9;
-    font-size: 2rem;
-    font-family: Saira Stencil One;
-    font-variant: small-caps;
-    letter-spacing: 4.5px;
-  }
 
   p {
     margin-bottom: 1rem;
@@ -69,8 +69,8 @@ export const About = () => {
       <Wrapper>
         <LeftSide>
           <div>
-            <span>04+</span>
-            <p>Anos de experiência </p>
+            <Number>04+</Number>
+            <p>Anos de experiência</p>
           </div>
           <img
             src={about}
@@ -78,7 +78,7 @@ export const About = () => {
           />
         </LeftSide>
         <RightSide>
-          <span>Sobre mim</span>
+          <AnimatedGradientTitle>Sobre mim</AnimatedGradientTitle>
           <p>
             Olá! Meu nome é Pedro Paulo (Pedro) e sou um apaixonado
             desenvolvedor web FullStack. Com uma formação em Análise e

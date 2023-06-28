@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
 import { About } from "./components/About";
+import { Skills } from "./components/Skills";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ function App() {
         <Header />
         <Home />
         <About />
+        <Skills />
       </Wrapper>
     </Container>
   );
