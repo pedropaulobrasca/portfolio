@@ -1,30 +1,8 @@
-import { styled } from "styled-components";
-
 import skillsPerson from "../../assets/skills_person.svg";
-import { useState } from "react";
 import { SkillBar } from "../SkillBar";
-
-const Container = styled.div`
-  position: relative;
-  margin-top: 10rem;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const SkillsGroup = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 4rem;
-`;
+import { Container, SkillsGroup, Wrapper } from "./styled";
 
 export const Skills = () => {
-  const [percent, setPercent] = useState(50);
-
   return (
     <Container>
       <Wrapper>
