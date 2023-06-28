@@ -1,9 +1,5 @@
 import { styled } from "styled-components";
-import {
-  AnimatedGradientTextBase,
-  AnimatedGradientTitle,
-  hue,
-} from "../AnimatedTextTitle";
+import { AnimatedGradientTitle } from "../AnimatedTextTitle";
 
 import about from "../../assets/about.svg";
 

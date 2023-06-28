@@ -17,9 +17,7 @@ export const AnimatedGradientTitle = styled.h1`
   -webkit-animation: ${hue} 10s infinite linear;
   font-family: Saira Stencil One;
   font-feature-settings: "kern";
-  font-size: 2rem;
   font-weight: 700;
-  line-height: 48px;
   overflow-wrap: break-word;
   text-rendering: optimizelegibility;
   -moz-osx-font-smoothing: grayscale;

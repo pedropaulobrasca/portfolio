@@ -5,6 +5,11 @@ interface ProgressProps {
   color: string;
 }
 
+export const SkillTitle = styled.span`
+  font-weight: bold;
+  font-size: 1.5rem;
+`;
+
 export const Container = styled.div`
   position: relative;
   height: 1.5rem;
