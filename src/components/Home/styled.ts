@@ -2,19 +2,23 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 8rem;
 
   margin-top: 10rem;
 `;
 
 export const LeftSide = styled.div`
   position: relative;
-  float: 1;
 
   span {
     font-size: 0.9rem;
@@ -39,13 +43,15 @@ export const LeftSide = styled.div`
 
 export const RightSide = styled.div`
   position: relative;
-  float: 1;
 `;
 
 export const Background = styled.img`
   position: fixed;
-  float: 0;
 
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
+`;
+
+export const Scroll = styled.img`
+  margin-top: 10rem;
 `;

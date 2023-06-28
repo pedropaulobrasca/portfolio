@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
+import { About } from "./components/About";
 
 const Container = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ function App() {
       <Wrapper>
         <Header />
         <Home />
+        <About />
       </Wrapper>
     </Container>
   );

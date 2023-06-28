@@ -1,7 +1,15 @@
-import { Container, Wrapper, LeftSide, RightSide, Background } from "./styled";
+import {
+  Container,
+  Wrapper,
+  LeftSide,
+  RightSide,
+  Background,
+  Scroll,
+} from "./styled";
 
 import personWithPc from "../../assets/person_with_pc.svg";
 import backgroundDev from "../../assets/developer_background.svg";
+import scroll from "../../assets/scroll.svg";
 
 export const Home = () => {
   return (
@@ -20,6 +28,7 @@ export const Home = () => {
           />
         </RightSide>
       </Wrapper>
+      <Scroll src={scroll} />
     </Container>
   );
 };
