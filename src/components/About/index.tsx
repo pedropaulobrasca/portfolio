@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { AnimatedGradientTitle } from "../AnimatedTextTitle";
 
 import about from "../../assets/about.svg";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 export const Container = styled.div`
   position: relative;
@@ -68,9 +69,12 @@ export const About = () => {
             <Number>04+</Number>
             <p>Anos de experiência</p>
           </div>
-          <img
-            src={about}
-            alt="Imagem de uma pessoa em um quadro com o perfil dele"
+          <Player
+            src="https://assets3.lottiefiles.com/packages/lf20_zfszhesy.json"
+            autoplay
+            loop
+            style={{ width: "30rem" }}
+            className="lottieImage"
           />
         </LeftSide>
         <RightSide>

@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
   gap: 8rem;
 
   margin-top: 10rem;
+
+  .lottieImage {
+    width: 40rem;
+  }
 `;
 
 export const LeftSide = styled.div`

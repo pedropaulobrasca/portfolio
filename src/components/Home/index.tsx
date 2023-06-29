@@ -7,9 +7,10 @@ import {
   Scroll,
 } from "./styled";
 
-import personWithPc from "../../assets/person_with_pc.svg";
+import lottieImage from "../../assets/programming.json";
 import backgroundDev from "../../assets/developer_background.svg";
 import scroll from "../../assets/scroll.svg";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 export const Home = () => {
   return (
@@ -22,10 +23,7 @@ export const Home = () => {
           <p>Transformando ideias em soluções digitais</p>
         </LeftSide>
         <RightSide>
-          <img
-            src={personWithPc}
-            alt="Pessoa sentado em cima da mesa do computador"
-          />
+          <Player src={lottieImage} autoplay loop className="lottieImage" />
         </RightSide>
       </Wrapper>
       <Scroll src={scroll} />

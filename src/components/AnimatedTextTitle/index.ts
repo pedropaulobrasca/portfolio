@@ -27,7 +27,6 @@ export const AnimatedGradientTitle = styled.h1`
 
 export const AnimatedGradient = css`
   background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-  -webkit-text-fill-color: transparent;
   -webkit-animation: ${hue} 10s infinite linear;
 `;
 

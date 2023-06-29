@@ -1,6 +1,8 @@
-import skillsPerson from "../../assets/skills_person.svg";
 import { SkillBar } from "../SkillBar";
 import { Container, SkillsGroup, Wrapper } from "./styled";
+
+import skillsPerson from "../../assets/skills_person.svg";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 export const Skills = () => {
   return (
@@ -16,9 +18,12 @@ export const Skills = () => {
           <SkillBar percent={50} color="purple" title="Vite" />
         </SkillsGroup>
         <div>
-          <img
-            src={skillsPerson}
-            alt="Pessoa apresentando as suas habilidades"
+          <Player
+            src="https://assets10.lottiefiles.com/private_files/lf30_obidsi0t.json"
+            autoplay
+            loop
+            style={{ width: "30rem" }}
+            className="lottieImage"
           />
         </div>
       </Wrapper>

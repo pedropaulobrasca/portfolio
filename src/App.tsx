@@ -4,6 +4,7 @@ import { Home } from "./components/Home";
 import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Experience } from "./components/Experience";
+import { Footer } from "./components/Footer";
 
 const Container = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ function App() {
         <About />
         <Skills />
         <Experience />
-        <About />
+        <Footer />
       </Wrapper>
     </Container>
   );
