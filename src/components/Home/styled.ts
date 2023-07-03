@@ -2,10 +2,6 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
   position: relative;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 export const Wrapper = styled.div`
@@ -15,9 +11,23 @@ export const Wrapper = styled.div`
   gap: 8rem;
 
   margin-top: 10rem;
+  transition: all 250ms;
 
   .lottieImage {
     width: 40rem;
+    transition: all 250ms;
+  }
+
+  @media only screen and (max-width: 1180px) {
+    flex-direction: column;
+    gap: 4rem;
+
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+
+    .lottieImage {
+      width: 20rem;
+    }
   }
 `;
 
@@ -43,6 +53,10 @@ export const LeftSide = styled.div`
     font-family: Saira;
     font-variant: small-caps;
   }
+
+  @media only screen and (max-width: 1180px) {
+    padding: 0 5rem;
+  }
 `;
 
 export const RightSide = styled.div`
@@ -50,12 +64,8 @@ export const RightSide = styled.div`
 `;
 
 export const Background = styled.img`
-  position: fixed;
+  position: absolute;
 
   width: 100vw;
   height: 70vh;
-`;
-
-export const Scroll = styled.img`
-  margin-top: 10rem;
 `;

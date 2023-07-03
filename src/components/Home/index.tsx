@@ -1,15 +1,7 @@
-import {
-  Container,
-  Wrapper,
-  LeftSide,
-  RightSide,
-  Background,
-  Scroll,
-} from "./styled";
+import { Container, Wrapper, LeftSide, RightSide, Background } from "./styled";
 
 import lottieImage from "../../assets/programming.json";
 import backgroundDev from "../../assets/developer_background.svg";
-import scroll from "../../assets/scroll.svg";
 import { Player } from "@lottiefiles/react-lottie-player";
 
 export const Home = () => {
@@ -26,7 +18,13 @@ export const Home = () => {
           <Player src={lottieImage} autoplay loop className="lottieImage" />
         </RightSide>
       </Wrapper>
-      <Scroll src={scroll} />
+      <Player
+        src="https://assets3.lottiefiles.com/packages/lf20_hgiemefu.json"
+        autoplay
+        loop
+        className="scrollDown"
+        style={{ width: "8rem" }}
+      />
     </Container>
   );
 };

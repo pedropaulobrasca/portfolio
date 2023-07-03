@@ -10,4 +10,8 @@ export const Container = styled.div`
 
   margin-top: 40px;
   padding: 20px;
+
+  @media only screen and (max-width: 1180px) {
+    justify-content: center;
+  }
 `;

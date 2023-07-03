@@ -1,64 +1,7 @@
-import { styled } from "styled-components";
 import { AnimatedGradientTitle } from "../AnimatedTextTitle";
 
-import about from "../../assets/about.svg";
 import { Player } from "@lottiefiles/react-lottie-player";
-
-export const Container = styled.div`
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-
-  margin-top: 10rem;
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-
-  align-items: center;
-  justify-content: space-around;
-
-  gap: 2rem;
-`;
-
-export const LeftSide = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  gap: 4rem;
-
-  div {
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    span {
-    }
-
-    p {
-      text-align: center;
-      font-size: 1.4rem;
-      font-family: Roboto;
-    }
-  }
-`;
-
-export const Number = styled.span`
-  color: #4328e9;
-  font-size: 4rem;
-  font-family: Saira Stencil One;
-`;
-
-export const RightSide = styled.div`
-  max-width: 640px;
-
-  p {
-    margin-bottom: 1rem;
-  }
-`;
+import { Container, LeftSide, RightSide, Wrapper, Number } from "./styled";
 
 export const About = () => {
   return (
@@ -73,7 +16,6 @@ export const About = () => {
             src="https://assets3.lottiefiles.com/packages/lf20_zfszhesy.json"
             autoplay
             loop
-            style={{ width: "30rem" }}
             className="lottieImage"
           />
         </LeftSide>
