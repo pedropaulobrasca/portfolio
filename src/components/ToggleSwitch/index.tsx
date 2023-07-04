@@ -1,36 +1,54 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Input, Label, Switch } from "./styled";
 
-interface toggleSwitchProps {
+interface ToggleSwitchProps {
   isTheme?: boolean;
   isLanguage?: boolean;
   label?: string;
   checked?: boolean;
+  onChange?: (checked: boolean) => void;
 }
 
 export const ToggleSwitch = ({
   isTheme,
   isLanguage,
   label,
-}: toggleSwitchProps) => {
-  const [checked, setChecked] = useState(false);
+  checked,
+  onChange,
+}: ToggleSwitchProps) => {
+  const [internalChecked, setInternalChecked] = useState(checked || false);
+
+  useEffect(() => {
+    if (checked !== undefined) {
+      setInternalChecked(checked);
+    }
+  }, [checked]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
+    const newChecked = e.target.checked;
+    setInternalChecked(newChecked);
+
+    if (onChange) {
+      onChange(newChecked);
+    }
   };
 
   if (isLanguage) {
-    checked ? (label = "PT-BR") : (label = "ENG");
+    label = internalChecked ? "PT-BR" : "ENG";
   }
 
   if (isTheme) {
-    checked ? (label = "LIGHT") : (label = "DARK");
+    label = internalChecked ? "LIGHT" : "DARK";
   }
 
   return (
     <Label>
       <span>{label}</span>
-      <Input checked={checked} type="checkbox" onChange={handleChange} />
+      <Input
+        checked={internalChecked}
+        type="checkbox"
+        onChange={handleChange}
+      />
       <Switch />
     </Label>
   );

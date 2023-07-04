@@ -1,11 +1,20 @@
 import { ToggleSwitch } from "../ToggleSwitch";
 import { Container } from "./styled";
 
-export const Header = () => {
+interface HeaderProps {
+  onThemeToggle: () => void;
+  theme: string; // Adicione a propriedade "theme"
+}
+
+export const Header = ({ onThemeToggle, theme }: HeaderProps) => {
   return (
     <Container>
       <ToggleSwitch isLanguage />
-      <ToggleSwitch isTheme />
+      <ToggleSwitch
+        isTheme
+        checked={theme === "dark"}
+        onChange={onThemeToggle}
+      />
     </Container>
   );
 };

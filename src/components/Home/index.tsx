@@ -23,7 +23,7 @@ export const Home = () => {
         autoplay
         loop
         className="scrollDown"
-        style={{ width: "8rem" }}
+        style={{ width: "8rem", marginTop: "10rem" }}
       />
     </Container>
   );

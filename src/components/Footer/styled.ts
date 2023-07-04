@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
 
   div {
     display: flex;
+    margin-top: 3rem;
   }
 
   .lottieImage {
