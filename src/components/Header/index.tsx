@@ -9,7 +9,7 @@ interface HeaderProps {
 export const Header = ({ onThemeToggle, theme }: HeaderProps) => {
   return (
     <Container>
-      <ToggleSwitch isLanguage />
+      {/* <ToggleSwitch isLanguage /> */}
       <ToggleSwitch
         isTheme
         checked={theme === "dark"}
