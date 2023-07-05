@@ -55,7 +55,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const FormGroup = styled.div`
+export const FormGroup = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;

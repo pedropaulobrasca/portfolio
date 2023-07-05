@@ -1,4 +1,6 @@
 import { Player } from "@lottiefiles/react-lottie-player";
+import emailjs from "@emailjs/browser";
+import { useRef, FormEvent } from "react";
 import {
   Container,
   FormGroup,
@@ -11,6 +13,30 @@ import {
 import { AnimatedGradientTitle } from "../AnimatedTextTitle";
 
 export const Footer = () => {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: FormEvent) => {
+    e.preventDefault();
+
+    if (form.current) {
+      emailjs
+        .sendForm(
+          "service_ljw0bmc",
+          "template_hdzuf1f",
+          form.current,
+          "E8nrCODF8gj5CPDTy"
+        )
+        .then(
+          (result) => {
+            alert("Email enviado com sucesso!");
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -28,7 +54,7 @@ export const Footer = () => {
             className="lottieImage"
           />
 
-          <FormGroup>
+          <FormGroup ref={form} onSubmit={sendEmail}>
             <label htmlFor="name">Qual é o seu nome completo?</label>
             <TextInput type="text" name="name" id="name" />
 
@@ -43,7 +69,7 @@ export const Footer = () => {
             </label>
             <TextArea name="message" id="message"></TextArea>
 
-            <SubmitButton>Enviar</SubmitButton>
+            <SubmitButton type="submit">Enviar</SubmitButton>
           </FormGroup>
         </div>
 
