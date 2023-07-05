@@ -1,6 +1,6 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import emailjs from "@emailjs/browser";
-import { useRef, FormEvent } from "react";
+import { useRef, FormEvent, useState, useEffect } from "react";
 import {
   Container,
   FormGroup,
@@ -11,8 +11,11 @@ import {
 } from "./styled";
 
 import { AnimatedGradientTitle } from "../AnimatedTextTitle";
+import Alert from "../Alert";
 
 export const Footer = () => {
+  const [showAlertEmailSuccess, setShowAlertEmailSuccess] = useState(false);
+  const [showAlertEmailError, setShowAlertEmailError] = useState(false);
   const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e: FormEvent) => {
@@ -28,10 +31,16 @@ export const Footer = () => {
         )
         .then(
           () => {
-            alert("Email enviado com sucesso!");
+            setShowAlertEmailSuccess(true);
+            setInterval(() => {
+              setShowAlertEmailSuccess(false);
+            }, 4000);
           },
-          (error) => {
-            console.log(error.text);
+          () => {
+            setShowAlertEmailError(true);
+            setInterval(() => {
+              setShowAlertEmailError(false);
+            }, 4000);
           }
         );
     }
@@ -56,18 +65,18 @@ export const Footer = () => {
 
           <FormGroup ref={form} onSubmit={sendEmail}>
             <label htmlFor="name">Qual é o seu nome completo?</label>
-            <TextInput type="text" name="name" id="name" />
+            <TextInput type="text" name="name" id="name" required/>
 
             <label htmlFor="email">Qual é o seu melhor e-mail?</label>
-            <TextInput type="email" name="email" id="email" />
+            <TextInput type="email" name="email" id="email" required/>
 
             <label htmlFor="phone">Qual é o seu telefone para contato?</label>
-            <TextInput type="tel" name="phone" id="phone" />
+            <TextInput type="tel" name="phone" id="phone" required/>
 
             <label htmlFor="message">
               Digite uma breve mensagem sobre o que você precisa:
             </label>
-            <TextArea name="message" id="message"></TextArea>
+            <TextArea name="message" id="message" required></TextArea>
 
             <SubmitButton type="submit">Enviar</SubmitButton>
           </FormGroup>
@@ -75,6 +84,14 @@ export const Footer = () => {
 
         <span>Desenvolvido por mim 😊</span>
       </Wrapper>
+
+      {showAlertEmailSuccess && (
+        <Alert type="success" message="E-mail enviado com sucesso!" />
+      )}
+
+      {showAlertEmailError && (
+        <Alert type="error" message="Oops, algo errado ao enviar e-mail." />
+      )}
     </Container>
   );
 };
