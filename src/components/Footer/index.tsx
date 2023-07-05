@@ -27,7 +27,7 @@ export const Footer = () => {
           "E8nrCODF8gj5CPDTy"
         )
         .then(
-          (result) => {
+          () => {
             alert("Email enviado com sucesso!");
           },
           (error) => {
