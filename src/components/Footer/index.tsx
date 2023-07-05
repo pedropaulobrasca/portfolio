@@ -1,6 +1,6 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import emailjs from "@emailjs/browser";
-import { useRef, FormEvent, useState, useEffect } from "react";
+import { useRef, FormEvent, useState } from "react";
 import {
   Container,
   FormGroup,
@@ -65,13 +65,13 @@ export const Footer = () => {
 
           <FormGroup ref={form} onSubmit={sendEmail}>
             <label htmlFor="name">Qual é o seu nome completo?</label>
-            <TextInput type="text" name="name" id="name" required/>
+            <TextInput type="text" name="name" id="name" required />
 
             <label htmlFor="email">Qual é o seu melhor e-mail?</label>
-            <TextInput type="email" name="email" id="email" required/>
+            <TextInput type="email" name="email" id="email" required />
 
             <label htmlFor="phone">Qual é o seu telefone para contato?</label>
-            <TextInput type="tel" name="phone" id="phone" required/>
+            <TextInput type="tel" name="phone" id="phone" required />
 
             <label htmlFor="message">
               Digite uma breve mensagem sobre o que você precisa:
