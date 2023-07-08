@@ -76,7 +76,7 @@ export const RightSide = styled.div`
     margin: 0 5rem;
 
     p {
-      text-align: center;
+      text-align: justify;
 
     }
   }

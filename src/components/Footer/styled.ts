@@ -36,6 +36,7 @@ export const Wrapper = styled.div`
 
     div {
       flex-direction: column;
+      margin-top: 0;
     }
 
     .lottieImage {

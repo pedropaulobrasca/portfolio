@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 export const Image = styled.img`
   @media only screen and (max-width: 1180px) {
     width: 20rem;
-    margin-bottom: 5rem;
+    margin-top: 5rem;
   }
 `;
 
