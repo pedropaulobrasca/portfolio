@@ -1,8 +1,10 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import emailjs from "@emailjs/browser";
 import { useRef, FormEvent, useState } from "react";
+import { z } from "zod";
 import {
   Container,
+  DevBy,
   FormGroup,
   SubmitButton,
   TextArea,
@@ -13,37 +15,80 @@ import {
 import { AnimatedGradientTitle } from "../AnimatedTextTitle";
 import Alert from "../Alert";
 
+// Esquema de validação usando zod
+const schema = z.object({
+  name: z.string().min(3).max(50).nonempty(),
+  email: z.string().email(),
+  phone: z
+    .string()
+    .min(10)
+    .max(15)
+    .regex(/^\+?[0-9]{10,14}$/),
+});
+
 export const Footer = () => {
   const [showAlertEmailSuccess, setShowAlertEmailSuccess] = useState(false);
   const [showAlertEmailError, setShowAlertEmailError] = useState(false);
+  const [showAlertInvalidForm, setShowAlertInvalidForm] = useState(false);
+  const [sendingEmail, setSendingEmail] = useState(false);
   const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e: FormEvent) => {
+  const sendEmail = async (e: FormEvent) => {
     e.preventDefault();
+    setSendingEmail(true);
 
     if (form.current) {
-      emailjs
-        .sendForm(
-          "service_ljw0bmc",
-          "template_hdzuf1f",
-          form.current,
-          "E8nrCODF8gj5CPDTy"
-        )
-        .then(
-          () => {
-            setShowAlertEmailSuccess(true);
-            setInterval(() => {
-              setShowAlertEmailSuccess(false);
-            }, 4000);
-          },
-          () => {
-            setShowAlertEmailError(true);
-            setInterval(() => {
-              setShowAlertEmailError(false);
-            }, 4000);
-          }
-        );
+      const isValid = await validateForm();
+      if (isValid) {
+        emailjs
+          .sendForm(
+            "service_ljw0bmc",
+            "template_hdzuf1f",
+            form.current,
+            "E8nrCODF8gj5CPDTy"
+          )
+          .then(
+            () => {
+              setShowAlertEmailSuccess(true);
+              setTimeout(() => {
+                setShowAlertEmailSuccess(false);
+                setSendingEmail(false);
+              }, 4000);
+            },
+            () => {
+              setShowAlertEmailError(true);
+              setTimeout(() => {
+                setShowAlertEmailError(false);
+                setSendingEmail(false);
+              }, 4000);
+            }
+          );
+      } else {
+        setSendingEmail(false);
+        setShowAlertInvalidForm(true);
+        setTimeout(() => {
+          setShowAlertInvalidForm(false);
+        }, 4000);
+      }
     }
+  };
+
+  const validateForm = async () => {
+    if (form.current) {
+      const formData = new FormData(form.current);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        // Validar os campos usando o esquema de validação do zod
+        schema.parse(data);
+        return true;
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    }
+
+    return false;
   };
 
   return (
@@ -78,11 +123,22 @@ export const Footer = () => {
             </label>
             <TextArea name="message" id="message" required></TextArea>
 
-            <SubmitButton type="submit">Enviar</SubmitButton>
+            <SubmitButton type="submit">
+              {sendingEmail && (
+                <Player
+                  src="https://assets10.lottiefiles.com/packages/lf20_x62chJ.json"
+                  loop
+                  autoplay
+                  className="lottieLoading"
+                />
+              )}
+
+              {!sendingEmail && <span>ENVIAR</span>}
+            </SubmitButton>
           </FormGroup>
         </div>
 
-        <span>Desenvolvido por mim 😊</span>
+        <DevBy>Desenvolvido por mim 😊</DevBy>
       </Wrapper>
 
       {showAlertEmailSuccess && (
@@ -91,6 +147,10 @@ export const Footer = () => {
 
       {showAlertEmailError && (
         <Alert type="error" message="Oops, algo errado ao enviar e-mail." />
+      )}
+
+      {showAlertInvalidForm && (
+        <Alert type="error" message="Preencha com dados validos." />
       )}
     </Container>
   );

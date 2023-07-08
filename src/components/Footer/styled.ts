@@ -17,14 +17,8 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  span {
-    margin-top: 10rem;
-    margin-bottom: 2rem;
-  }
-
   div {
     display: flex;
-    margin-top: 3rem;
   }
 
   .lottieImage {
@@ -90,19 +84,31 @@ export const FocusedInput = styled(InputField)`
 `;
 
 export const SubmitButton = styled.button`
-  padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
+  font-weight: bold;
 
-  &:hover {
-    background-color: #0056b3;
-  }
+  height: 60px;
 
   ${AnimatedGradient}
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .lottieLoading {
+    height: 60px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .if-player-container {
+    background: red;
+  }
 `;
 
 export const TextArea = styled.textarea`
@@ -113,4 +119,9 @@ export const TextArea = styled.textarea`
   width: 100%;
   box-sizing: border-box;
   resize: vertical;
+`;
+
+export const DevBy = styled.span`
+  margin-top: 10rem;
+  margin-bottom: 2rem;
 `;
