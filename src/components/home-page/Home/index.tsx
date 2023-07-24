@@ -1,7 +1,7 @@
 import { Container, Wrapper, LeftSide, RightSide, Background } from "./styled";
 
-import lottieImage from "../../assets/programming.json";
-import backgroundDev from "../../assets/developer_background.svg";
+import lottieImage from "../../../assets/programming.json";
+import backgroundDev from "../../../assets/developer_background.svg";
 import { Player } from "@lottiefiles/react-lottie-player";
 
 export const Home = () => {

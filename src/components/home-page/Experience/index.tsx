@@ -1,6 +1,6 @@
 import { AnimatedGradientTitle } from "../AnimatedTextTitle";
 
-import roadMap from "../../assets/roadmap.svg";
+import roadMap from "../../../assets/roadmap.svg";
 import {
   Container,
   Exp,
