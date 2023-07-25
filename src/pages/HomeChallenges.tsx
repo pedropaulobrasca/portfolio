@@ -1,8 +1,19 @@
+import { styled } from "styled-components";
+
+export const Container = styled.main`
+  height: 100vh;
+
+  background-color: #5a5a5a;
+`;
+
 function HomeChallengesPage() {
   return (
-    <div>
-      <h1>Aqui vou listar todos os desafios que vou fazendo</h1>
-    </div>
+    <Container>
+      {/* Desafios concluídos */}
+      
+
+
+    </Container>
   );
 }
 

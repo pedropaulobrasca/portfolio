@@ -14,6 +14,7 @@ import {
 
 import { AnimatedGradientTitle } from "../AnimatedTextTitle";
 import Alert from "../Alert";
+import { Link } from "react-router-dom";
 
 // Esquema de validação usando zod
 const schema = z.object({
@@ -138,7 +139,9 @@ export const Footer = () => {
           </FormGroup>
         </div>
 
-        <DevBy>Desenvolvido por mim 😊</DevBy>
+        <DevBy>
+          <Link to={"/challenges"}>Desenvolvido por mim 😊</Link>
+        </DevBy>
       </Wrapper>
 
       {showAlertEmailSuccess && (

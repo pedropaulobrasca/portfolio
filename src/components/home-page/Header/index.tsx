@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ToggleSwitch } from "../ToggleSwitch";
 import { Container } from "./styled";
 
@@ -10,8 +9,7 @@ interface HeaderProps {
 export const Header = ({ onThemeToggle, theme }: HeaderProps) => {
   return (
     <Container>
-      <Link to="/challenges">.asdasdasd</Link>
-      {/* <ToggleSwitch isLanguage /> */}
+      <div></div>
       <ToggleSwitch
         isTheme
         checked={theme === "dark"}
